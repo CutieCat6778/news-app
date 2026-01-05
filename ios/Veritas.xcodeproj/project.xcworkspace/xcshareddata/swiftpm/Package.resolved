@@ -1,0 +1,15 @@
+{
+  "originHash" : "27cecde3a8a13272e345c4004acc1474ea81ea24f2e32508b03c286be37d8ffe",
+  "pins" : [
+    {
+      "identity" : "xcodebuild-nvim-preview?tab=readme-ov-file",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wojciech-kulik/xcodebuild-nvim-preview?tab=readme-ov-file",
+      "state" : {
+        "revision" : "863260fe5fa0177807f4afda92aacc278dfc3ff1",
+        "version" : "1.0.11"
+      }
+    }
+  ],
+  "version" : 3
+}

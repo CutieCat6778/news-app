@@ -6,13 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		25301AA92F0B3836002A25E9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25301AA82F0B3836002A25E9 /* Localizable.xcstrings */; };
+		25301AAC2F0B3A73002A25E9 /* XcodebuildNvimPreview in Frameworks */ = {isa = PBXBuildFile; productRef = 25301AAB2F0B3A73002A25E9 /* XcodebuildNvimPreview */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		25301AA82F0B3836002A25E9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		253A6FEC2F0B046B00429269 /* Veritas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Veritas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		253A700C2F0B306C00429269 /* Exceptions for "Veritas" folder in "Veritas" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 253A6FEB2F0B046B00429269 /* Veritas */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		253A6FEE2F0B046B00429269 /* Veritas */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				253A700C2F0B306C00429269 /* Exceptions for "Veritas" folder in "Veritas" target */,
+			);
 			path = Veritas;
 			sourceTree = "<group>";
 		};
@@ -23,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25301AAC2F0B3A73002A25E9 /* XcodebuildNvimPreview in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +52,7 @@
 		253A6FE32F0B046B00429269 = {
 			isa = PBXGroup;
 			children = (
+				25301AA82F0B3836002A25E9 /* Localizable.xcstrings */,
 				253A6FEE2F0B046B00429269 /* Veritas */,
 				253A6FED2F0B046B00429269 /* Products */,
 			);
@@ -65,6 +86,7 @@
 			);
 			name = Veritas;
 			packageProductDependencies = (
+				25301AAB2F0B3A73002A25E9 /* XcodebuildNvimPreview */,
 			);
 			productName = Veritas;
 			productReference = 253A6FEC2F0B046B00429269 /* Veritas.app */;
@@ -90,10 +112,13 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				de,
 			);
 			mainGroup = 253A6FE32F0B046B00429269;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				25301AAA2F0B3A73002A25E9 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 253A6FED2F0B046B00429269 /* Products */;
 			projectDirPath = "";
@@ -109,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25301AA92F0B3836002A25E9 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +211,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -242,6 +269,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -256,6 +284,7 @@
 				DEVELOPMENT_TEAM = A7JM8Q7HP9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Veritas/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -288,6 +317,7 @@
 				DEVELOPMENT_TEAM = A7JM8Q7HP9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Veritas/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +362,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25301AAA2F0B3A73002A25E9 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wojciech-kulik/xcodebuild-nvim-preview?tab=readme-ov-file";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.11;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25301AAB2F0B3A73002A25E9 /* XcodebuildNvimPreview */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25301AAA2F0B3A73002A25E9 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */;
+			productName = XcodebuildNvimPreview;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 253A6FE42F0B046B00429269 /* Project object */;
 }

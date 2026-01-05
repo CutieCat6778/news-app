@@ -17,12 +17,12 @@ struct WelcomeView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Spacer()
 
-                Text("Welcome to Veritas!")
+                Text("welcome_title")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color(UIColor.label))
 
-                Text("Your journey with the truth of media, starts here.")
+                Text("welcome_subtitle", comment: "Welcome Subtitlte")
                     .foregroundColor(Color(UIColor.secondaryLabel))
 
                 Spacer()
@@ -32,7 +32,7 @@ struct WelcomeView: View {
                     Button(action: {
                         hasLaunchedBefore = true
                     }) {
-                        Text("Continue")
+                        Text("continue_button", comment: "Continue Button")
                             .foregroundColor(Color(UIColor.systemBackground))
                             .padding()
                             .background(Color(UIColor.label))

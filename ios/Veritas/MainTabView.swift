@@ -5,17 +5,17 @@ struct MainTabView: View {
         TabView {
             HomePage()
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("home_tab", systemImage: "house")
                 }
 
             SearchPage()
                 .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
+                    Label("search_tab", systemImage: "magnifyingglass")
                 }
 
             ProfilePage()
                 .tabItem {
-                    Label("Profile", systemImage: "person.crop.circle")
+                    Label("profile_tab", systemImage: "person.crop.circle")
                 }
         }
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import XcodebuildNvimPreview
 
 @main
 struct VeritasApp: App {
@@ -15,8 +16,10 @@ struct VeritasApp: App {
         WindowGroup {
             if hasLaunchedBefore {
                 MainTabView()
+                    .environment(\.locale, Locale(identifier: "de"))
             } else {
                 WelcomeView()
+                    .environment(\.locale, Locale(identifier: "de"))
             }
         }
     }
