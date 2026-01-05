@@ -1,12 +1,15 @@
+import Apollo
 import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
         TabView {
-            HomePage()
-                .tabItem {
-                    Label("home_tab", systemImage: "house")
-                }
+            NavigationStack {
+                HomePage(viewModel: HomePageModel())
+            }
+            .tabItem {
+                Label("home_tab", systemImage: "house")
+            }
 
             SearchPage()
                 .tabItem {

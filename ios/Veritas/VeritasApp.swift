@@ -5,8 +5,9 @@
 //  Created by Thinh Nguyen on 04.01.26.
 //
 
+import Apollo
+import Foundation
 import SwiftUI
-import XcodebuildNvimPreview
 
 @main
 struct VeritasApp: App {

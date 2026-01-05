@@ -1,0 +1,95 @@
+# =========================
+# Fragments
+# =========================
+
+fragment ArticleFields on Article {
+  id
+  title
+  source
+  publishedAt
+  uri
+  views
+  description
+  banner
+  category
+}
+
+fragment ArticleWithLinks on Article {
+  ...ArticleFields
+  linkedTo {
+    id
+    title
+    source
+    publishedAt
+    banner
+  }
+}
+
+fragment KeywordFields on KeyWords {
+  keyword
+  lastUpdate
+}
+
+fragment ResponseKeywordFields on ResponseKeyWords {
+  id
+  keyword
+  lastUpdate
+  articles {
+    ...ArticleFields
+  }
+}
+
+# =========================
+# Queries
+# =========================
+
+# Fetch all articles
+query GetArticles {
+  articles {
+    ...ArticleFields
+  }
+}
+
+# Fetch a single article by ID
+query GetArticle($id: ID!) {
+  article(id: $id) {
+    ...ArticleFields
+    ...ArticleWithLinks
+  }
+}
+
+# Fetch top articles by view count (server-defined logic)
+query GetTopArticles($amount: Int!) {
+  topArticles(amount: $amount) {
+    ...ArticleFields
+  }
+}
+
+# Fetch most recent articles
+query GetRecentArticles($amount: Int!) {
+  recentArticle(amount: $amount) {
+    ...ArticleFields
+    ...ArticleWithLinks
+  }
+}
+
+# Fetch articles linked to a specific article
+query GetLinkedArticles($id: ID!) {
+  linkedArticles(id: $id) {
+    ...ArticleFields
+  }
+}
+
+# Fetch multiple articles by IDs
+query BatchFindArticles($ids: [ID]!) {
+  batchFindArticles(ids: $ids) {
+    ...ArticleFields
+  }
+}
+
+# Fetch all keywords with their related articles
+query GetKeywords {
+  keywords {
+    ...ResponseKeywordFields
+  }
+}

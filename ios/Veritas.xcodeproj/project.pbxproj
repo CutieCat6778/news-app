@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		25301AA92F0B3836002A25E9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25301AA82F0B3836002A25E9 /* Localizable.xcstrings */; };
-		25301AAC2F0B3A73002A25E9 /* XcodebuildNvimPreview in Frameworks */ = {isa = PBXBuildFile; productRef = 25301AAB2F0B3A73002A25E9 /* XcodebuildNvimPreview */; };
+		25301BC92F0C673F002A25E9 /* Graphql in Frameworks */ = {isa = PBXBuildFile; productRef = 25301BC82F0C673F002A25E9 /* Graphql */; };
+		25301BCB2F0C673F002A25E9 /* GraphqlTestMocks in Frameworks */ = {isa = PBXBuildFile; productRef = 25301BCA2F0C673F002A25E9 /* GraphqlTestMocks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25301AAC2F0B3A73002A25E9 /* XcodebuildNvimPreview in Frameworks */,
+				25301BCB2F0C673F002A25E9 /* GraphqlTestMocks in Frameworks */,
+				25301BC92F0C673F002A25E9 /* Graphql in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +88,8 @@
 			);
 			name = Veritas;
 			packageProductDependencies = (
-				25301AAB2F0B3A73002A25E9 /* XcodebuildNvimPreview */,
+				25301BC82F0C673F002A25E9 /* Graphql */,
+				25301BCA2F0C673F002A25E9 /* GraphqlTestMocks */,
 			);
 			productName = Veritas;
 			productReference = 253A6FEC2F0B046B00429269 /* Veritas.app */;
@@ -117,7 +120,8 @@
 			mainGroup = 253A6FE32F0B046B00429269;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				25301AAA2F0B3A73002A25E9 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */,
+				25301B082F0C5F3D002A25E9 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				25301BC72F0C673F002A25E9 /* XCLocalSwiftPackageReference "Graphql" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 253A6FED2F0B046B00429269 /* Products */;
@@ -363,22 +367,32 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		25301BC72F0C673F002A25E9 /* XCLocalSwiftPackageReference "Graphql" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Graphql;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
-		25301AAA2F0B3A73002A25E9 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */ = {
+		25301B082F0C5F3D002A25E9 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wojciech-kulik/xcodebuild-nvim-preview?tab=readme-ov-file";
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.11;
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.0.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		25301AAB2F0B3A73002A25E9 /* XcodebuildNvimPreview */ = {
+		25301BC82F0C673F002A25E9 /* Graphql */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 25301AAA2F0B3A73002A25E9 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */;
-			productName = XcodebuildNvimPreview;
+			productName = Graphql;
+		};
+		25301BCA2F0C673F002A25E9 /* GraphqlTestMocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GraphqlTestMocks;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,0 +1,41 @@
+{
+  "schemaNamespace": "Graphql",
+  "input": {
+    "operationSearchPaths": [
+      "./Veritas/Graphql/ops.graphql"
+    ],
+    "schemaSearchPaths": [
+      "./Veritas/Graphql/api.graphqls"
+    ]
+  },
+  "output": {
+    "testMocks": {
+      "swiftPackage": {
+        "targetName": "GraphqlTestMocks"
+      }
+    },
+    "schemaTypes": {
+      "path": "./Graphql",
+      "moduleType": {
+        "swiftPackage": {}
+      }
+    },
+    "operations": {
+      "inSchemaModule": {}
+    }
+  },
+  "options": {
+    "queryStringLiteralFormat": "multiline",
+    "deprecatedEnumCases": "include",
+    "warningsOnDeprecatedUsage": "include",
+    "conversionStrategies": {
+      "enumCases": "camelCase"
+    },
+    "pruneGeneratedFiles": false,
+    "selectionSetInitializers": {
+      "localCacheMutations": true,
+      "namedFragments": true,
+      "operations": true
+    }
+  }
+}

@@ -1,13 +1,13 @@
 {
-  "originHash" : "27cecde3a8a13272e345c4004acc1474ea81ea24f2e32508b03c286be37d8ffe",
+  "originHash" : "931440278103ba39b2d835f2c346aeb873ebcb4ff41767ce2ae24e250b359dbe",
   "pins" : [
     {
-      "identity" : "xcodebuild-nvim-preview?tab=readme-ov-file",
+      "identity" : "apollo-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/wojciech-kulik/xcodebuild-nvim-preview?tab=readme-ov-file",
+      "location" : "https://github.com/apollographql/apollo-ios.git",
       "state" : {
-        "revision" : "863260fe5fa0177807f4afda92aacc278dfc3ff1",
-        "version" : "1.0.11"
+        "revision" : "68aba4be6a951a26f2f587e132ed8f82b5a63511",
+        "version" : "2.0.4"
       }
     }
   ],

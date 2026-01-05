@@ -1,6 +1,52 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld %2$@"
+          }
+        }
+      }
+    },
+    "articledetailview_read_full_article" : {
+      "comment" : "Read full article",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vollständigen Artikel lesen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read full article"
+          }
+        }
+      }
+    },
+    "articledetailview_related_articles" : {
+      "comment" : "Related Articles",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ähnliche Artikel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Related Articles"
+          }
+        }
+      }
+    },
     "continue_button" : {
       "comment" : "Continue Button",
       "extractionState" : "manual",
@@ -33,6 +79,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Home"
+          }
+        }
+      }
+    },
+    "homepage_now" : {
+      "comment" : "Now",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jetzt gerade"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now currently"
           }
         }
       }
@@ -74,10 +138,26 @@
       }
     },
     "This is profile" : {
-
+      "comment" : "This is Profile",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das ist Profil"
+          }
+        }
+      }
     },
     "This is searchPage" : {
-
+      "comment" : "This is searchPage",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das is Suche"
+          }
+        }
+      }
     },
     "welcome_subtitle" : {
       "comment" : "Welcome Subtitle",
