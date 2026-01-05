@@ -1,0 +1,44 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+scalar Time
+scalar StringArray
+
+enum UserRole {
+  ADMIN
+  USER
+  PREMIUM
+}
+
+enum Source {
+  Tagesschau
+  Sueddeutsche
+  DieZeit 
+  FAZ
+  Welt
+  TAZ
+  Handelsblatt
+}
+
+type Article {
+  id: ID!
+  title: String!
+  source: Source! 
+  publishedAt: Time!
+  uri: String!
+  views: Int!
+  description: String!
+  banner: String!
+  linkedTo: StringArray
+  category: StringArray
+}
+
+type Query {
+  articles: [Article]!
+  topArticles(amount: Int!): [Article!]! 
+  linkedArticles(id: ID!): [Article]!
+  article(id: ID!): Article 
+  recentArticle(amount: Int!): [Article!]! 
+  batchFindArticles(ids: [ID]!): [Article!]!
+}
