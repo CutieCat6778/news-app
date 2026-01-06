@@ -128,6 +128,11 @@ struct ArticleDetailView: View {
                 }
                 .padding(.horizontal)
             }
+            .refreshable {
+                if pullData {
+                    await viewModel.refreshArticle(id: article.id)
+                }
+            }
         }
         .opacity(viewModel.isLoading && pullData ? 0.5 : 1.0)
 

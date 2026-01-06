@@ -119,6 +119,9 @@ struct SavedArticlesView: View {
                 }
             }
         }
+        .refreshable {
+            await viewModel.refreshSavedArticles(ids: savedArticlesManager.getSavedArticleIDs())
+        }
         .navigationTitle("menu_saved_articles")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {

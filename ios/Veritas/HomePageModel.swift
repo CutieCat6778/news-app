@@ -11,6 +11,7 @@ protocol HomePageModelProtocol: ObservableObject, AnyObject {
     var isLoadingKeywords: Bool { get }
     func getRecentArticles(amount: Int)
     func getKeyWords()
+    func refreshContent() async
 }
 
 final class HomePageModel: HomePageModelProtocol {
@@ -79,6 +80,55 @@ final class HomePageModel: HomePageModelProtocol {
                 self.isLoadingKeywords = false
             }
         }
+    }
+
+    func refreshContent() async {
+        // Cancel both existing tasks
+        articlesTask?.cancel()
+        keywordsTask?.cancel()
+
+        isLoadingArticles = true
+        isLoadingKeywords = true
+
+        // Refresh articles
+        articlesTask = Task {
+            do {
+                let query = GetRecentArticlesQuery(amount: 5)
+                let result = try await Network.shared.apollo.fetch(query: query)
+                guard !Task.isCancelled else { return }
+
+                if let fetchedData = result.data?.recentArticle {
+                    self.articles = fetchedData.compactMap { self.mapToArticle(item: $0) }
+                }
+                self.isLoadingArticles = false
+            } catch {
+                guard !Task.isCancelled else { return }
+                print("Error refreshing articles: \(error)")
+                self.isLoadingArticles = false
+            }
+        }
+
+        // Refresh keywords
+        keywordsTask = Task {
+            do {
+                let query = GetKeywordsQuery()
+                let result = try await Network.shared.apollo.fetch(query: query)
+                guard !Task.isCancelled else { return }
+
+                if let fetchedData = result.data?.keywords {
+                    self.keywords = fetchedData.compactMap { self.mapToKeyword(item: $0) }
+                }
+                self.isLoadingKeywords = false
+            } catch {
+                guard !Task.isCancelled else { return }
+                print("Error refreshing keywords: \(error)")
+                self.isLoadingKeywords = false
+            }
+        }
+
+        // Wait for both to complete
+        await articlesTask?.value
+        await keywordsTask?.value
     }
 
     private func mapToKeyword(item: GetKeywordsQuery.Data.Keyword?) -> Keyword? {

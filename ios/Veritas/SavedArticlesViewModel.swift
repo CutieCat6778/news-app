@@ -57,6 +57,35 @@ final class SavedArticlesViewModel: ObservableObject {
         }
     }
 
+    func refreshSavedArticles(ids: [String]) async {
+        guard !ids.isEmpty else {
+            articles = []
+            return
+        }
+
+        articlesTask?.cancel()
+        hasError = false
+
+        articlesTask = Task {
+            do {
+                let query = BatchFindArticlesQuery(ids: ids)
+                let result = try await Network.shared.apollo.fetch(query: query)
+                guard !Task.isCancelled else { return }
+
+                if let fetchedData = result.data?.batchFindArticles {
+                    self.articles = fetchedData.compactMap { self.mapToArticle(item: $0) }
+                }
+            } catch {
+                guard !Task.isCancelled else { return }
+                print("Error refreshing saved articles: \(error)")
+                self.hasError = true
+                self.errorMessage = error.localizedDescription
+            }
+        }
+
+        await articlesTask?.value
+    }
+
     private func mapToArticle(item: BatchFindArticlesQuery.Data.BatchFindArticle?) -> Article? {
         guard let item = item else { return nil }
         let fields = item.fragments.articleFields

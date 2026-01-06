@@ -30,6 +30,9 @@ struct HomePage<ViewModel: HomePageModelProtocol>: View {
                 }
             }
         }
+        .refreshable {
+            await viewModel.refreshContent()
+        }
         .background(Color.clear)
         .task {
             viewModel.getRecentArticles(amount: 5)

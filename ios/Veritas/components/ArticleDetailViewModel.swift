@@ -9,6 +9,8 @@ final class ArticleDetailViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var error: Error?
 
+    private var articleTask: Task<Void, Never>?
+
     // ISO8601 Date Formatter
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -18,23 +20,54 @@ final class ArticleDetailViewModel: ObservableObject {
         return formatter
     }()
 
+    deinit {
+        articleTask?.cancel()
+    }
+
     func fetchArticle(id: String) {
+        articleTask?.cancel()
         isLoading = true
-        Task {
+
+        articleTask = Task {
             do {
                 let query = GetArticleQuery(id: id)
                 let result = try await Network.shared.apollo.fetch(query: query)
+                guard !Task.isCancelled else { return }
 
                 if let articleData = result.data?.article {
                     self.fetchedArticle = mapToArticle(item: articleData)
                 }
                 isLoading = false
             } catch {
+                guard !Task.isCancelled else { return }
                 print("Error fetching article: \(error)")
                 self.error = error
                 isLoading = false
             }
         }
+    }
+
+    func refreshArticle(id: String) async {
+        articleTask?.cancel()
+        error = nil
+
+        articleTask = Task {
+            do {
+                let query = GetArticleQuery(id: id)
+                let result = try await Network.shared.apollo.fetch(query: query)
+                guard !Task.isCancelled else { return }
+
+                if let articleData = result.data?.article {
+                    self.fetchedArticle = mapToArticle(item: articleData)
+                }
+            } catch {
+                guard !Task.isCancelled else { return }
+                print("Error refreshing article: \(error)")
+                self.error = error
+            }
+        }
+
+        await articleTask?.value
     }
 
     private func mapToArticle(item: GetArticleQuery.Data.Article) -> Article {
