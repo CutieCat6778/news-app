@@ -8,7 +8,6 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 COPY . .
-COPY .env.docker .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o server .
 
@@ -19,7 +18,7 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
 COPY --from=builder /app/server .
-COPY .env.docker .
+COPY .env.docker .env
 
 EXPOSE 3000
 
