@@ -18,7 +18,7 @@ import (
 	"gorm.io/gorm"
 )
 
-const defaultPort = "8080"
+const defaultPort = "3000"
 
 func main() {
 	ctx, cancel := context.WithCancel(context.Background())
